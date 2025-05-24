@@ -1,2 +1,2 @@
 # Python-Exercises
-Esercizi in linguaggio Pyhton
+Esercizi in linguaggio Python
