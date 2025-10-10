@@ -1,7 +1,7 @@
 from mido import MidiFile
 
 def note_to_freq(note):
-    """Convert MIDI note (0–127) to frequency in Hz"""
+    """Convert MIDI note (0-127) to frequency in Hz"""
     return 440.0 * (2.0 ** ((note - 69) / 12.0))
 
 def midi_to_gcode(midi_path, gcode_path, channel=0):
