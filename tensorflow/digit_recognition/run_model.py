@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 # 1. CARICA IL MODELLO PRE-ALLENATO
 print("Caricamento del modello...")
-loaded_model = tf.keras.models.load_model('modello_cifre.keras')
+loaded_model = tf.keras.models.load_model('model.keras')
 print("Modello caricato con successo.")
 
 # 2. PREPARA I DATI PER IL TEST
