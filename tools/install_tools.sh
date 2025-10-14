@@ -8,7 +8,7 @@
 
 # ---- PARTE 1: CREAZIONE E SETUP DELL'AMBIENTE MASTER ----
 
-echo " PARTE 1: Configurazione di 'master' 🛠️"
+echo " PARTE 1: Configurazione di 'master'"
 echo "========================================"
 
 # 1. Crea il primo ambiente virtuale nella cartella superiore
@@ -37,16 +37,16 @@ echo ""
 
 # ---- PARTE 2: CREAZIONE E SETUP DELL'AMBIENTE TENSORFLOW ----
 
-echo " PARTE 2: Configurazione di 'tensorflow' 🧠"
+echo " PARTE 2: Configurazione di 'tensorflow_venv'"
 echo "==========================================="
 
 # 1. Crea il secondo ambiente virtuale nella cartella superiore
-echo "Creazione di ../tensorflow..."
-python3 -m venv ../tensorflow
+echo "Creazione di ../tensorflow_venv..."
+python3 -m venv ../tensorflow_venv
 
 # 2. Attiva il secondo ambiente virtuale
-echo "Attivazione di ../tensorflow..."
-source ../tensorflow/bin/activate
+echo "Attivazione di ../tensorflow_venv..."
+source ../tensorflow_venv/bin/activate
 
 # 3. Installa la combinazione specifica e testata di TF, Metal e Keras
 echo "Installazione di tensorflow==2.17.1, tensorflow-metal==1.1.0, tf-keras==2.17.0..."
@@ -59,15 +59,15 @@ import tensorflow as tf;
 print(f'Versione di TensorFlow installata: {tf.__version__}');
 gpu_devices = tf.config.list_physical_devices('GPU');
 if gpu_devices:
-    print('🎉 Successo! GPU Metal trovata:', gpu_devices);
+    print('Successo! GPU Metal trovata:', gpu_devices);
 else:
-    print('⚠️ Attenzione: Nessuna GPU Metal trovata. TensorFlow userà la CPU.');
+    print('Attenzione: Nessuna GPU Metal trovata. TensorFlow userà la CPU.');
 "
 echo "---------------------------------"
 
 # 5. Disattiva il secondo ambiente
-echo "Installazione in tensorflow completata. Disattivazione..."
+echo "Installazione in tensorflow_venv completata. Disattivazione..."
 deactivate
 
 echo ""
-echo "✅ Processo completato. Creati e configurati due ambienti virtuali ('master' e 'tensorflow') nella cartella superiore."
+echo "Processo completato. Creati e configurati due ambienti virtuali ('master' e 'tensorflow_venv') nella cartella superiore."
