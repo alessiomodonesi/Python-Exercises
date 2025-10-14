@@ -23,8 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inizializza con un messaggio di benvenuto
     addLogEntry('Pronto per il riconoscimento.');
 
-    // 1. Gestione del click sul bottone
+    // --- 1. GESTIONE DEL CLICK SUL BOTTONE ---
     toggleBtn.addEventListener('click', () => {
+        // Controlla se il bottone è già disabilitato per evitare doppi click
+        if (toggleBtn.disabled) {
+            return;
+        }
+
         // Invia l'evento 'toggle_recognition' al server
         socket.emit('toggle_recognition');
 
@@ -32,10 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleBtn.textContent = '... Riconoscimento in corso ...';
         toggleBtn.classList.remove('btn-primary');
         toggleBtn.classList.add('btn-danger', 'recognizing');
-        toggleBtn.disabled = true; // Disabilita il bottone temporaneamente
+        toggleBtn.disabled = true; // Disabilita il bottone
     });
 
-    // 2. Ascolto dei log dal server
+    // --- 2. ASCOLTO DEI LOG DAL SERVER ---
     socket.on('action_log', (msg) => {
         console.log('Azione ricevuta:', msg.data);
 
@@ -47,6 +52,24 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleBtn.classList.remove('btn-danger', 'recognizing');
         toggleBtn.classList.add('btn-primary');
         toggleBtn.disabled = false; // Riabilita il bottone
+    });
+
+    // --- 3. NUOVA SEZIONE: GESTIONE DELLA TASTIERA ---
+    // Aggiunge un "ascoltatore" di eventi all'intera pagina web.
+    // L'evento 'keydown' si attiva ogni volta che un tasto viene premuto.
+    document.addEventListener('keydown', (event) => {
+        // Controlla se il tasto premuto è la barra spaziatrice (' ' o 'Space').
+        // 'event.key' contiene il nome del tasto.
+        if (event.key === ' ' || event.key === 'Spacebar') {
+            // event.preventDefault() impedisce il comportamento predefinito
+            // della barra spaziatrice (es. scorrere la pagina), che non vogliamo.
+            event.preventDefault();
+
+            // Simula un click sul bottone di riconoscimento.
+            // Questo riutilizza tutta la logica che abbiamo già scritto
+            // per il click del mouse, senza dover duplicare il codice.
+            toggleBtn.click();
+        }
     });
 
 });
