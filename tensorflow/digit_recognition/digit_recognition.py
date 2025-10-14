@@ -53,8 +53,8 @@ print(f'\nAccuratezza sul test set: {test_acc:.4f}')
 
 # 6. SALVA IL MODELLO ALLENATO
 print("Salvataggio del modello in corso...")
-model.save('modello_cifre.keras')
-print("Modello salvato come 'modello_cifre.keras'")
+model.save('model.keras')
+print("Modello salvato come 'model.keras'")
 
 # 7. FARE UNA PREDIZIONE E VISUALIZZARLA
 # Scegliamo un'immagine a caso dal test set per vedere come si comporta il modello.
