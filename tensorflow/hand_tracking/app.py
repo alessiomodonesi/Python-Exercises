@@ -60,5 +60,5 @@ def video_feed():
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__ == '__main__':
-    # Avvia il server Flask. 'debug=True' aiuta a vedere gli errori.
-    app.run(debug=True)
+    # Avvia il server rendendolo accessibile sulla rete locale usando host='0.0.0.0'
+    app.run(host='0.0.0.0', debug=True)
