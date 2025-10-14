@@ -51,8 +51,12 @@ print("Allenamento completato.")
 test_loss, test_acc = model.evaluate(test_images, test_labels, verbose=2)
 print(f'\nAccuratezza sul test set: {test_acc:.4f}')
 
+# 6. SALVA IL MODELLO ALLENATO
+print("Salvataggio del modello in corso...")
+model.save('modello_cifre.keras')
+print("Modello salvato come 'modello_cifre.keras'")
 
-# 6. FARE UNA PREDIZIONE E VISUALIZZARLA
+# 7. FARE UNA PREDIZIONE E VISUALIZZARLA
 # Scegliamo un'immagine a caso dal test set per vedere come si comporta il modello.
 immagine_test = np.random.randint(0, test_images.shape[0])
 img = test_images[immagine_test]
