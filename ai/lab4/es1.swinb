@@ -1,0 +1,28 @@
+<div class="notebook">
+
+<div class="nb-cell program" name="p1">
+% --- Fatti ---
+woman(jia).
+man(john).
+
+healthy(john).
+healthy(jia).
+wealthy(john).
+
+% --- Regole ---
+% (6) 'anyone' è un 'traveler' se è 'healthy' E 'wealthy'.
+traveler(X) :- healthy(X), wealthy(X).
+
+% (7) 'anyone' 'can_travel' se è un 'traveler'.
+can_travel(X) :- traveler(X).
+</div>
+
+<div class="nb-cell query" name="q1">
+can_travel(X).
+</div>
+
+<div class="nb-cell query" name="q2">
+healthy(X), wealthy(X).
+</div>
+
+</div>

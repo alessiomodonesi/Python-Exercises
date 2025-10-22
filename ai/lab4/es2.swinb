@@ -1,0 +1,53 @@
+<div class="notebook">
+
+<div class="nb-cell program" name="p1">
+% --- TUTTE LE REGOLE PER is_even ---
+is_even(0).
+
+is_even(X) :-
+    X &gt; 0,
+    X_pred is X - 1,
+    is_odd(X_pred).
+
+is_even(X) :-
+    X &lt; 0,
+    Y is -X,
+    is_even(Y).
+
+% --- TUTTE LE REGOLE PER is_odd ---
+is_odd(X) :-
+    X &gt; 0,
+    X_pred is X - 1,
+    is_even(X_pred).
+
+is_odd(X) :-
+    X &lt; 0,
+    Y is -X,
+    is_odd(Y).
+</div>
+
+<div class="nb-cell query" name="q1">
+is_even(4).
+</div>
+
+<div class="nb-cell query" name="q2">
+is_odd(5).
+</div>
+
+<div class="nb-cell query" name="q3">
+is_even(0).
+</div>
+
+<div class="nb-cell query" name="q6">
+is_odd(0).
+</div>
+
+<div class="nb-cell query" name="q4">
+is_even(-6).
+</div>
+
+<div class="nb-cell query" name="q5">
+is_odd(-7).
+</div>
+
+</div>
