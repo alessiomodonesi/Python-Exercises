@@ -1,5 +1,9 @@
+# v-envs
 master
 tensorflow_venv
 whisper
+
+# other
 *.mp3
 Icon?
+.DS_Store
