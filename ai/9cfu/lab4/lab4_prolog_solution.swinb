@@ -1,0 +1,106 @@
+<div class="notebook">
+
+<div class="nb-cell markdown" name="md1">
+For given English statements write a prolog program.
+- Facts &amp; Rules
+(1) jia is a woman.
+(2) john is a man.
+(3) john is healthy.
+(4) jia is healthy.
+(5) john is wealthy.
+(6) anyone is a traveler if she/he is healthy and wealthy.
+(7) anyone can travel if she/he is a traveler.
+- Goals.
+(1) Who can travel?
+(2) Who is healthy and wealthy?
+</div>
+
+<div class="nb-cell program" name="p1">
+% Facts
+woman(jia).
+man(john).
+healthy(john).
+healthy(jia).
+wealthy(john).
+
+% Rules
+traveler(X) :- healthy(X), wealthy(X).
+can_travel(X) :- traveler(X).
+</div>
+
+<div class="nb-cell query" name="q1">
+can_travel(X).
+</div>
+
+<div class="nb-cell query" name="q2">
+trace, can_travel(X).
+</div>
+
+<div class="nb-cell query" name="q3">
+healthy(X), wealthy(X).
+</div>
+
+<div class="nb-cell markdown" name="md2">
+Write a Prolog program that checks if a number is even or odd.
+
+Hint:
+
+X is even if X=0 or the predecessor of X is odd for positive X;
+
+X is odd if the predecessor of X is even for positive X;
+
+X is odd if |X| is odd for negative X;
+
+X is even if |X| is even for negative X.
+</div>
+
+<div class="nb-cell program" name="p2">
+% Base case: 0 is even
+even(0).
+
+% A positive number X is even if X-1 is odd
+even(X) :- X &gt; 0, X1 is X - 1, odd(X1).
+
+% A negative number X is even if |X| is even
+even(X) :- X &lt; 0, X1 is abs(X), even(X1).
+
+% A positive number X is odd if X-1 is even
+odd(X) :- X &gt; 0, X1 is X - 1, even(X1).
+
+% A negative number X is odd if |X| is odd
+odd(X) :- X &lt; 0, X1 is abs(X), odd(X1).
+</div>
+
+<div class="nb-cell query" name="q4">
+even(5).
+</div>
+
+<div class="nb-cell query" name="q5">
+odd(4).
+</div>
+
+<div class="nb-cell query" name="q6">
+odd(5).
+</div>
+
+<div class="nb-cell query" name="q7">
+even(4).
+</div>
+
+<div class="nb-cell program" name="p3">
+%Alternative solutions to check if even or odd without using recursion
+
+even(X) :-X mod 2 =:= 0.
+
+odd(X) :-X mod 2 =:= 1.
+</div>
+
+<div class="nb-cell query" name="q8">
+odd(5)
+</div>
+
+<div class="nb-cell query" name="q9">
+odd(4)
+</div>
+
+</div>
