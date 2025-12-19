@@ -1,0 +1,150 @@
+<div class="notebook">
+
+<div class="nb-cell program" name="p1">
+teaches(dr_fred, history).
+teaches(dr_fred, english).
+teaches(dr_fred, drama).
+teaches(dr_fiona, physics).	         	
+studies(alice, english).
+studies(angus, english).
+studies(amelia, drama).
+studies(alex, physics).
+</div>
+
+<div class="nb-cell query" name="q1">
+teaches(dr_fred, Course), studies(Student, Course).
+</div>
+
+<div class="nb-cell query" name="q2">
+trace, teaches(dr_fred, Course), studies(Student, Course).
+</div>
+
+<div class="nb-cell query" name="q3">
+teaches(dr_fred, Course), !, studies(Student, Course).
+</div>
+
+<div class="nb-cell program" name="p2">
+teaches(dr_fred, history).
+teaches(dr_fred, english).
+teaches(dr_fred, drama).
+teaches(dr_fiona, physics).	  
+studies(alice, history). %add this fact
+studies(alice, english).
+studies(angus, english).
+studies(amelia, drama).
+studies(alex, physics).
+</div>
+
+<div class="nb-cell query" name="q4">
+teaches(dr_fred, Course), !, studies(Student, Course).
+</div>
+
+<div class="nb-cell program" name="p3">
+teaches(dr_fred, history).
+teaches(dr_fred, english).
+teaches(dr_fred, drama).
+teaches(dr_fiona, physics).	         	
+studies(alice, english).
+studies(angus, english).
+studies(amelia, drama).
+studies(alex, physics).
+</div>
+
+<div class="nb-cell query" name="q5">
+teaches(dr_fred, Course), studies(Student, Course), !.
+</div>
+
+<div class="nb-cell query" name="q6">
+trace, teaches(dr_fred, Course), studies(Student, Course), !.
+</div>
+
+<div class="nb-cell query" name="q7">
+!, teaches(dr_fred, Course), studies(Student, Course).
+</div>
+
+<div class="nb-cell program" name="p4">
+antibodies_owner(maria).
+dance(linda).
+sing(linda).
+sing(gianni).
+noproblems(vittorio).
+
+healthy(X) :- happy(X).
+healthy(X) :- antibodies_owner(X).
+happy(X) :- sing(X), dance(X).
+happy(X) :- noproblems(X).
+</div>
+
+<div class="nb-cell query" name="q8">
+healthy(X)
+</div>
+
+<div class="nb-cell program" name="p5">
+antibodies_owner(maria).
+dance(linda).
+sing(linda).
+sing(gianni).
+noproblems(vittorio).
+
+healthy(X) :- happy(X).
+healthy(X) :- antibodies_owner(X).
+happy(X) :- sing(X), !, dance(X).
+happy(X) :- noproblems(X).
+</div>
+
+<div class="nb-cell query" name="q9">
+healthy(X)
+</div>
+
+<div class="nb-cell program" name="p6">
+antibodies_owner(maria).
+dance(linda).
+sing(linda).
+sing(gianni).
+noproblems(vittorio).
+
+healthy(X) :- happy(X).
+healthy(X) :- antibodies_owner(X).
+happy(X) :- sing(X), dance(X), !.
+happy(X) :- noproblems(X).
+</div>
+
+<div class="nb-cell query" name="q10">
+healthy(X)
+</div>
+
+<div class="nb-cell program" name="p7">
+antibodies_owner(maria).
+dance(linda).
+sing(linda).
+sing(gianni).
+noproblems(vittorio).
+
+healthy(X) :- happy(X).
+healthy(X) :- antibodies_owner(X).
+happy(X) :- !, sing(X), dance(X).
+happy(X) :- noproblems(X).
+</div>
+
+<div class="nb-cell query" name="q11">
+healthy(X)
+</div>
+
+<div class="nb-cell program" name="p8">
+antibodies_owner(maria).
+dance(linda).
+sing(linda).
+sing(gianni).
+noproblems(vittorio).
+
+healthy(X) :- happy(X).
+healthy(X) :- antibodies_owner(X).
+happy(X) :- sing(X), dance(X).
+happy(X) :- !, noproblems(X).
+</div>
+
+<div class="nb-cell query" name="q12">
+healthy(X)
+</div>
+
+</div>
