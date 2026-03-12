@@ -1,9 +1,6 @@
 # v-envs
-master
-tensorflow_venv
-whisper
+tensorflow
 
 # other
-*.mp3
 Icon?
 .DS_Store
