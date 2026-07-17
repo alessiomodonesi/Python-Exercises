@@ -1,2 +1,3 @@
 [console_scripts]
+draw_circle = robot_controller.draw_circle:main
 test_node = robot_controller.first_node:main
