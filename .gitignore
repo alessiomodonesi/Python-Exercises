@@ -3,9 +3,9 @@ tensorflow
 
 # ros2
 browse.vc.db
-workspace/build/
-workspace/install/
-workspace/log/
+**/workspace/build/
+**/workspace/install/
+**/workspace/log/
 
 # Python caching & build artifacts
 **/__pycache__/
