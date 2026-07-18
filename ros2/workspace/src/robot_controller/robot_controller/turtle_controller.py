@@ -4,22 +4,27 @@ import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
 from turtlesim.msg import Pose
+from turtlesim.srv import SetPen
+from functools import partial
 
 class TurtleControllerNode(Node):
     
     def __init__(self):
         super().__init__("turtle_controller")
         self.get_logger().info("Turtle controller has been started")
+        self.previous_x_ = 0
         
         # create a publisher
         self.cmd_vel_publisher_ = self.create_publisher(Twist, "/turtle1/cmd_vel", 10)
 
         # create a listener
         self.pose_subscriber_ = self.create_subscription(Pose, "/turtle1/pose", self.pose_callback, 10)
-        
+    
+    # ros2 topic hz /turtle1/pose
+    # pose_callback work at ~ 60 Hz -> good for topic, very bad for service
+    # solution: previous_x_
     def pose_callback(self, pose: Pose):
         cmd = Twist()
-        
         if (pose.x > 9.0 or pose.x < 2.0 or pose.y > 9.0 or pose.y < 2.0):
             cmd.linear.x = 1.0
             cmd.angular.z = 0.9
@@ -28,6 +33,48 @@ class TurtleControllerNode(Node):
             cmd.angular.z = 0.0
             
         self.cmd_vel_publisher_.publish(cmd)
+        
+        if (pose.x > 5.5 and self.previous_x_ <= 5.5): # prev: left, now: right
+            self.previous_x_ = pose.x
+            self.get_logger().info("Set color to red")
+            self.call_set_pen_service(255, 0, 0, 3, 0)
+        elif (pose.x <= 5.5 and self.previous_x_ > 5.5): # prev: right, now: left
+            self.previous_x_ = pose.x
+            self.get_logger().info("Set color to green")
+            self.call_set_pen_service(0, 255, 0, 3, 0)
+        
+    # ros2 service list
+    # ros2 service type /turtle1/set_pen
+    # ros2 interface show turtlesim/srv/SetPen
+    # ros2 service call /turtle1/set_pen turtlesim/srv/SetPen "{r: 255, g: 0, b: 0, width: 5, off: 0}" 
+    def call_set_pen_service(self, r, g, b, width, off):
+        # create client
+        # service type, service name
+        client = self.create_client(SetPen, "/turtle1/set_pen")
+        
+        # wait for service
+        while not client.wait_for_service(1.0):
+            self.get_logger.warn("Waiting for service...")
+            
+        # create request
+        request = SetPen.Request()
+        request.r = r
+        request.g = g
+        request.b = b
+        request.width = width
+        request.off = off
+        
+        # call the service
+        future = client.call_async(request)
+        
+        # callback call when service replies
+        future.add_done_callback(partial(self.set_pen_callback))
+    
+    def set_pen_callback(self, future):
+        try:
+            response = future.result()
+        except Exception as e:
+            self.get_logger().error("Service call failed: %r" % (e,))
     
 def main(args=None):
     # initialize ros2 communications
@@ -36,5 +83,3 @@ def main(args=None):
     rclpy.spin(node) # rimane in esecuzione
     rclpy.shutdown()
     
-if __name__ == '__main__':
-    main()
