@@ -8,6 +8,7 @@ class PoseSubscriberNode(Node):
     
     def __init__(self):
         super().__init__("pose_subscriber")
+        
         # create a listener
         # data type, topic name, callback, queue size
         self.pose_subscriber_ = self.create_subscription(Pose, "/turtle1/pose", self.pose_callback, 10)

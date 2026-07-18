@@ -26,7 +26,8 @@ setup(
         'console_scripts': [
             "test_node = robot_controller.first_node:main",
             "draw_circle = robot_controller.draw_circle:main",
-            "pose_subscriber = robot_controller.pose_subscriber:main"
+            "pose_subscriber = robot_controller.pose_subscriber:main",
+            "turtle_controller = robot_controller.turtle_controller:main"
         ],
     },
 )
