@@ -6,6 +6,7 @@ browse.vc.db
 **/workspace/build/
 **/workspace/install/
 **/workspace/log/
+**/nautilus_ws/
 
 # Python caching & build artifacts
 **/__pycache__/
