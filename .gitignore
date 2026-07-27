@@ -1,20 +1,16 @@
 # v-envs
-tensorflow
+.venv
 
 # ros2
 browse.vc.db
 **/workspace/build/
 **/workspace/install/
 **/workspace/log/
-**/nautilus_ws/
 
 # Python caching & build artifacts
 **/__pycache__/
 *.pyc
 *.egg-info/
-
-# Local files
-tree.txt
 
 # other
 Icon?
