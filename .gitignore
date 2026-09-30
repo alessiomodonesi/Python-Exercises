@@ -1,5 +1,6 @@
 # v-envs
-.venv
+ML/.venv_machine_learning
+OTHER/.venv_tensorflow
 
 # ros2
 browse.vc.db
