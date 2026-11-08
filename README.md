@@ -1,14 +1,87 @@
 # Python-Exercises
 
-Esercizi in linguaggio Python
+Python exercises, university lab notebooks, and personal test projects.
 
-## Progetti e Test Personali
+This README reflects the current repository structure (`41 directories, 94 files`).
 
-Di seguito sono elencati i principali progetti e script di test contenuti in questa repository:
+## Repository Structure
 
-* **[ai](./ai)**: File di laboratorio, notebook Jupyter ed esercizi legati ai corsi universitari e allo studio dell'Intelligenza Artificiale (es. Inference Causale, Reti Bayesiane, Machine Learning classico e Reti Neurali Convoluzionali).
-* **[body_tracking](./body_tracking)**: Script Python focalizzato sul tracciamento e sull'analisi della postura e dei movimenti del corpo in tempo reale.
-* **[control_system](./control_system)**: Strumenti di analisi per sistemi di controllo, con script dedicati al plotting di diagrammi di Bode e traiettorie sia continue che discrete, in 2D e 3D.
-* **[digit_recognition](./digit_recognition)**: Progetto di riconoscimento delle cifre scritte a mano, comprensivo di modello addestrato in formato Keras e script per l'esecuzione.
-* **[hand_tracking](./hand_tracking)**: Web app completa (Flask) basata su un sistema di tracciamento delle mani in tempo reale con interfaccia frontend (HTML/CSS/JS).
-* **[ros2](./ros2)**: Ambiente di sviluppo per la robotica basato su ROS 2 (Robot Operating System), configurato all'interno di container Docker tramite Docker Compose.
+### `AI_BSc`
+
+Notebooks and exercises from BSc Artificial Intelligence courses.
+
+- `lab1` to `lab10`
+- Topics include:
+  - AI fundamentals
+  - Prolog exercises (`.swinb` notebooks)
+  - Probability
+  - Bayesian networks
+  - Causal inference
+  - MDP
+  - Classical Machine Learning
+  - Convolutional Neural Networks (CNNs)
+- Includes extra exercises and solution notebooks.
+- Example datasets: `padua_weather.csv`.
+
+### `AI_MSc`
+
+Notebooks from MSc Artificial Intelligence labs.
+
+- `lab1` — exercises and solutions.
+- `lab2` — lab notebook and partial solutions.
+- `lab3`, `lab4`, `lab5` — lab directories.
+
+### `ML`
+
+Machine Learning lab materials.
+
+- `1. ML with coins File`
+  - `lab1.ipynb`
+  - thinking sheets (PDF)
+- `2. Linear Classification`
+  - `lab2.ipynb`
+  - `lab2_solution.ipynb`
+  - thinking sheet (PDF)
+- `3. Linear Regression`
+  - `lab3.ipynb`
+  - `lab3_solution.ipynb`
+  - `ccpp_Data_clean2018.csv`
+  - thinking sheet (PDF)
+- `Other`
+  - `Model Selection and Validation.ipynb`
+  - `Simple Learning Example` with `example.ipynb`, `samples.csv`, and `target.csv`
+
+### `OTHER`
+
+Personal projects and utility scripts.
+
+- `body_tracking`
+  - Real-time body posture and movement tracking script.
+- `control_system`
+  - Bode diagram plotting.
+  - Continuous and discrete trajectory plotting.
+  - 2D and 3D frequency response plots.
+- `digit_recognition`
+  - Handwritten digit recognition project.
+  - Keras model (`model.keras`) and execution scripts.
+- `hand_tracking`
+  - Flask web app for real-time hand tracking.
+  - Frontend with HTML/CSS/JS.
+- `robot_controller`
+  - ROS 2 package with nodes such as:
+    - `first_node.py`
+    - `draw_circle.py`
+    - `pose_subscriber.py`
+    - `turtle_controller.py`
+  - Includes package configuration and tests.
+- `tf_setup`
+  - TensorFlow setup and test scripts:
+    - `metal_test.py`
+    - `running_test.py`
+- `tools`
+  - Utility scripts:
+    - `check_acceleration.py`
+    - `cit_remover.py`
+    - `midi2gcode.py`
+    - `pdf_to_images.py`
+    - `trascrivi.py`
