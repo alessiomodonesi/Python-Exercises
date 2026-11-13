@@ -14,5 +14,6 @@ browse.vc.db
 *.egg-info/
 
 # other
-Icon?
+.vscode
 .DS_Store
+Icon?
